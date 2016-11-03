@@ -27,14 +27,18 @@ public class Layout_events extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent qrcode_intent = new Intent(Layout_events.this,Layout_qrcode.class);
-                startActivity(qrcode_intent);
-
                 if(ContextCompat.checkSelfPermission(Layout_events.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(Layout_events.this, new String[]{
                             Manifest.permission.CAMERA
                     }, 1);
                 }
+
+                else{
+
+                    Intent intent_scan = new Intent(Layout_events.this, Layout_qrcode.class);
+                    startActivity(intent_scan);
+                }
+
 
 
             }
