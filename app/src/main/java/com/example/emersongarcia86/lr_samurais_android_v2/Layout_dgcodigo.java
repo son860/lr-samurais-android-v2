@@ -27,21 +27,32 @@ public class Layout_dgcodigo extends Activity {
             public void onClick(View v) {
 
                 /* Validador do campo de código */
-                if(edtext_codigo.getText().toString().trim().length() > 0){
+                if(edtext_codigo.length() == 8){
 
                     Intent edtext_intent = new Intent(Layout_dgcodigo.this,Layout_choose_groups.class);
                     startActivity(edtext_intent);
 
-                    Toast.makeText(Layout_dgcodigo.this,
+                    Toast.makeText(getApplication(),
                             "Login realizado com sucesso!",
-                            Toast.LENGTH_LONG);
+                            Toast.LENGTH_LONG).show();
 
+                }
 
-                } else{
+                else if(edtext_codigo.getText().toString().trim() == null) {
 
-                    Toast.makeText(Layout_dgcodigo.this,
+                    Toast.makeText(getApplication(),
+                            "Campo Vazio! Por favor, preencha o campo novamente.",
+                            Toast.LENGTH_LONG).show();
+
+                }
+
+                else {
+
+                    Toast.makeText(getApplication(),
                             "Código inválido! Tente novamente!",
-                            Toast.LENGTH_LONG);
+                            Toast.LENGTH_LONG).show();
+
+                    edtext_codigo.setText("");
                 }
             }
         });
