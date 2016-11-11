@@ -33,6 +33,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.Participante;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import com.example.emersongarcia86.lr_samurais_android_v2.Rest;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -87,7 +93,36 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                Retrofit retrofit = Rest.getInstance().get();
+                PIService service = retrofit.create(PIService.class);
+                Participante p = new Participante();
+
+                String email = mEmailView.getText().toString();
+                String password = mPasswordView.getText().toString();
+                p.setEmail(email);
+                p.setSenha(password);
+
+                Call<Participante> call;
+                call = service.getParticipante(p);
+
+                call.enqueue(new Callback<Participante>() {
+                    @Override
+                    public void onResponse(Call<Participante> call, Response<Participante> response) {
+                        Participante  lpg ;
+                        lpg = response.body();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Participante> call, Throwable t) {
+
+                    }
+
+
+                });
+
+
+                //attemptLogin();
             }
         });
 

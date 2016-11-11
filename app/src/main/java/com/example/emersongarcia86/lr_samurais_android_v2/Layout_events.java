@@ -39,8 +39,6 @@ public class Layout_events extends AppCompatActivity {
                     startActivity(intent_scan);
                 }
 
-
-
             }
         });
 

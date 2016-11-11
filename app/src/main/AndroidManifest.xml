@@ -30,5 +30,5 @@
         <activity android:name=".Layout_choose_groups" />
         <activity android:name=".layout_groups"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
