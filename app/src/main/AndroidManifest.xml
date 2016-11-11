@@ -15,8 +15,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Layout_events">
-        </activity>
+        <activity android:name=".Layout_events" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +27,11 @@
         <activity android:name=".Layout_resultqrcode" />
         <activity android:name=".Layout_dgcodigo" />
         <activity android:name=".Layout_choose_groups" />
-        <activity android:name=".layout_groups"></activity>
+        <activity android:name=".layout_groups" />
+        <activity android:name=".Layout_game_rules" />
+        <activity android:name=".Layout_create_group" />
+        <activity android:name=".Layout_while_result" />
+        <activity android:name=".Layout_questions"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_layout_questions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.example.emersongarcia86.lr_samurais_android_v2.Layout_questions">
+
+    <TextView
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
+
+    <RadioButton
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alternativ_01"
+        android:layout_marginBottom="30dp"/>
+
+    <RadioButton
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alternativ_02"
+        android:layout_marginBottom="30dp"/>
+
+    <RadioButton
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alternativ_03" />
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:id="@+id/btn_enviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Responder"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"/>
+
+
+
+
+
+</LinearLayout>
