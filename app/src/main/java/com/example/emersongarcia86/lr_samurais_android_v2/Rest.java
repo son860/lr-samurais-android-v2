@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by Fabio on 08/04/2016.
  */
+
 public class Rest {
     private static Rest ourInstance = new Rest();
 
@@ -25,7 +26,7 @@ public class Rest {
         retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
-                .baseUrl("http://tsitomcat2.azurewebsites.net/learningrace1/rest/")
+                .baseUrl("http://tsitomcat2.azurewebsites.net/")
                 .build();
     }
 

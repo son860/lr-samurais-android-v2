@@ -102,26 +102,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 p.setEmail(email);
                 p.setSenha(password);
 
-                Call<Participante> call;
+                Call<List<Participante>> call;
                 call = service.getParticipante(p);
 
-                call.enqueue(new Callback<Participante>() {
+                call.enqueue(new Callback<List<Participante>>() {
                     @Override
-                    public void onResponse(Call<Participante> call, Response<Participante> response) {
-                        Participante  lpg ;
+                    public void onResponse(Call<List<Participante>> call, Response<List<Participante>> response) {
+                        List<Participante>  lpg ;
                         lpg = response.body();
 
                     }
 
                     @Override
-                    public void onFailure(Call<Participante> call, Throwable t) {
+                    public void onFailure(Call<List<Participante>> call, Throwable t) {
 
                     }
-
-
                 });
-
-
                 //attemptLogin();
             }
         });
