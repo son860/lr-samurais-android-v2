@@ -33,5 +33,5 @@
         <activity android:name=".Layout_while_result" />
         <activity android:name=".Layout_questions"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
