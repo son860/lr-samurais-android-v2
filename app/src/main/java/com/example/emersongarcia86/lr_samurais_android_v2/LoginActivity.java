@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private Button mEmailSignInButton;
     private View mProgressView;
     private View mLoginFormView;
 
@@ -80,18 +81,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+
+        mPasswordView.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    mEmailSignInButton.performClick();
                     return true;
                 }
                 return false;
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
