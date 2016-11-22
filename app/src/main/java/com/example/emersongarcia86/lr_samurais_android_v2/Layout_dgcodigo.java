@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import models.Evento;
+import retrofit2.Retrofit;
+
 public class Layout_dgcodigo extends Activity {
 
     private Button btn_codigo;
@@ -26,6 +29,12 @@ public class Layout_dgcodigo extends Activity {
             @Override
             public void onClick(View v) {
 
+                Retrofit retrofit = Rest.getInstance().get();
+                PIService service = retrofit.create(PIService.class);
+                Evento e = new Evento();
+
+                String codEvento = edtext_codigo.getText().toString();
+                e.setCodEvento(codEvento);
                 /* Validador do campo de código */
                 if(edtext_codigo.length() == 8){
 

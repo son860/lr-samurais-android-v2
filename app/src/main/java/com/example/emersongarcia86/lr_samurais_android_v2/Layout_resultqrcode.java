@@ -12,7 +12,7 @@ public class Layout_resultqrcode extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_layout_qrcode);
+        setContentView(R.layout.activity_layout_resultqrcode);
 
         text_result = (TextView) findViewById(R.id.qr_code_area);
 
