@@ -1,6 +1,7 @@
 package com.example.emersongarcia86.lr_samurais_android_v2;
 
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,11 +24,16 @@ public class Layout_choose_groups extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab_add_group);
         list = (ListView) findViewById(R.id.list_groups);
 
+        ActionBar topActivity = getSupportActionBar();
+        topActivity.setTitle("Grupos");
+
+
         String[] data = new String[] {
             "Grupo 1",
             "Grupo 2",
             "Grupo 3"
         };
+
         ArrayAdapter adapter = new ArrayAdapter(Layout_choose_groups.this, android.R.layout.simple_selectable_list_item, data);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
