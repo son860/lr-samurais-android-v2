@@ -12,6 +12,12 @@
     android:padding="20dp"
     tools:context="com.example.emersongarcia86.lr_samurais_android_v2.Layout_questions">
 
+    <ImageView
+        android:id="@+id/question_image"
+        android:visibility="gone"
+        android:layout_width="56dp"
+        android:layout_height="56dp" />
+
     <TextView
         android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
