@@ -24,6 +24,10 @@ public class Layout_dgcodigo extends Activity {
         btn_codigo = (Button) findViewById(R.id.btn_codigo);
         edtext_codigo = (EditText) findViewById(R.id.edtext_codigo);
 
+        String result_qrcode = getIntent().getStringExtra("QRCode");
+        if (result_qrcode != null && !result_qrcode.equals("")) {
+            edtext_codigo.setText(result_qrcode);
+        }
 
         btn_codigo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,9 +45,9 @@ public class Layout_dgcodigo extends Activity {
                     Intent edtext_intent = new Intent(Layout_dgcodigo.this,Layout_choose_groups.class);
                     startActivity(edtext_intent);
 
-                    Toast.makeText(getApplication(),
+                    /*Toast.makeText(getApplication(),
                             "Login realizado com sucesso!",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();*/
 
                 }
 

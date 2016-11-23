@@ -76,6 +76,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        if (Application.isLogged(LoginActivity.this)) {
+            Intent intent = new Intent(LoginActivity.this, Layout_events.class);
+            startActivity(intent);
+            finish();
+        }
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -123,6 +130,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         } else {
                             Log.e("Login response", "Login success");
 
+                            Application.login(LoginActivity.this);
+
                             Intent intent = new Intent(LoginActivity.this, Layout_events.class);
                             startActivity(intent);
                             finish();
@@ -131,7 +140,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                     @Override
                     public void onFailure(Call<List<Participante>> call, Throwable t) {
-
+                        Log.e("Login response", t.getMessage());
                     }
                 });
                 //attemptLogin();

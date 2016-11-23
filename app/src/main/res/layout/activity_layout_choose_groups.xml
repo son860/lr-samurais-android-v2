@@ -1,67 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_layout_choose_groups"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:padding="30dp"
     tools:context="com.example.emersongarcia86.lr_samurais_android_v2.Layout_choose_groups">
 
-    <Button
-        android:id="@+id/btn_cgp_01"
+    <ListView
+        android:id="@+id/list_groups"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grupo Samurai 1"/>
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/btn_cgp_02"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grupo Samurai 2"
-        android:layout_marginTop="20dp"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_add_group"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"/>
 
-    <Button
-        android:id="@+id/btn_cgp_03"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grupo Samurai 3"
-        android:layout_marginTop="20dp"/>
-
-    <Button
-        android:id="@+id/btn_cgp_04"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grupo Samurai 4"
-        android:layout_marginTop="20dp"/>
-
-    <Button
-        android:textColor="#fff"
-        android:layout_marginTop="20dp"
-        android:id="@+id/btn_cgp_entrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Entrar no grupo"
-        android:background="@color/colorPrimary"/>
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OU"/>
-
-    <Button
-        android:textColor="#fff"
-        android:layout_marginTop="20dp"
-        android:id="@+id/btn_cgp_criar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Criar grupo"
-        android:background="@color/colorAccent"/>
-
-</LinearLayout>
+</RelativeLayout>
