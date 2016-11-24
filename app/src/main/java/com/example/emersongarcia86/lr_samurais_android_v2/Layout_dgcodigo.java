@@ -53,7 +53,7 @@ public class Layout_dgcodigo extends Activity {
                     e.setIdentificador(identificador);
 
                     Call<List<Evento>> call;
-                    call = service.selectEvento("38934888");
+                    call = service.selectEvento(identificador);
 
                     call.enqueue(new Callback<List<Evento>>() {
                         @Override

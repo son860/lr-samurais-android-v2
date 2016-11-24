@@ -15,10 +15,12 @@ import retrofit2.http.Path;
 /**
  * Created by temp.cas on 31/03/2016.
  */
+
 public interface PIService {
     @POST("learningrace1/rest/participante")
     Call<List<Participante>> getParticipante(@Body Participante participante);
 
-    @POST("learningrace1/rest/evento")
-    Call<List<Evento>> selectEvento(@Body String identificador);
+    @GET("learningrace1/rest/evento/{identificador}")
+    Call<List<Evento>> selectEvento(@Path("identificador") String identificador);
+
 }
