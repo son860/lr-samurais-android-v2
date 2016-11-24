@@ -27,7 +27,6 @@ public class Layout_qrcode extends AppCompatActivity {
         scannerView.setResultHandler(new ZXingScannerView.ResultHandler() {
             @Override
             public void handleResult(Result result) {
-
                 Intent intent_process = new Intent(Layout_qrcode.this, Layout_dgcodigo.class);
                 intent_process.putExtra("QRCode", result.getText());
                 startActivity(intent_process);

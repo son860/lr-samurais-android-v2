@@ -26,7 +26,7 @@ public class Layout_choose_groups extends AppCompatActivity {
         list = (ListView) findViewById(R.id.list_groups);
 
         ActionBar actionBar = getSupportActionBar();
-        //actionBar.setTitle("Titulo 2");
+        actionBar.setTitle("Grupo");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         String[] data = new String[] {
@@ -34,8 +34,10 @@ public class Layout_choose_groups extends AppCompatActivity {
             "Grupo 2",
             "Grupo 3"
         };
+
         ArrayAdapter adapter = new ArrayAdapter(Layout_choose_groups.this, android.R.layout.simple_selectable_list_item, data);
         list.setAdapter(adapter);
+
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

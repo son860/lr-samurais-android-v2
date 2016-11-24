@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         } else {
                             Log.e("Login response", "Login success");
 
-                            Application.login(LoginActivity.this);
+                            Application.login(LoginActivity.this, lpg);
 
                             Intent intent = new Intent(LoginActivity.this, Layout_events.class);
                             startActivity(intent);

@@ -2,13 +2,20 @@ package com.example.emersongarcia86.lr_samurais_android_v2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
+import br.com.pi.pi4.GroupSelectionActivity;
 import models.Evento;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 
 public class Layout_dgcodigo extends Activity {
@@ -37,17 +44,24 @@ public class Layout_dgcodigo extends Activity {
                 PIService service = retrofit.create(PIService.class);
                 Evento e = new Evento();
 
-                String codEvento = edtext_codigo.getText().toString();
-                e.setCodEvento(codEvento);
+                Call<List<Evento>> call;
+                call = service.getEvento(e);
+
+                String identificador = edtext_codigo.getText().toString();
+                e.setIdentificador(identificador);
                 /* Validador do campo de código */
                 if(edtext_codigo.length() == 8){
 
-                    Intent edtext_intent = new Intent(Layout_dgcodigo.this,Layout_choose_groups.class);
-                    startActivity(edtext_intent);
-
-                    /*Toast.makeText(getApplication(),
-                            "Login realizado com sucesso!",
-                            Toast.LENGTH_LONG).show();*/
+                    Intent i = new Intent(Layout_dgcodigo.this, GroupSelectionActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("evento", e.getCodEvento().toString()); //Your id
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Layout_dgcodigo.this);
+                    Integer userId = preferences.getInt("userid",0);
+                    Log.d("testeHendy",userId.toString());
+                    b.putString("participanteId", userId.toString()); //Your id
+                    b.putString ("proximaTela", Layout_game_rules.class.getName());
+                    i.putExtras(b); //Put your id to your next Intent
+                    startActivity(i);
 
                 }
 

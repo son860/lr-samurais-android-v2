@@ -5,7 +5,7 @@ package models;
  */
 
 public class Evento {
-    public String codEvento;
+    public Integer codEvento;
     public String descricao;
     public String data;
     public Integer codTipoEvento;
@@ -13,11 +13,11 @@ public class Evento {
     public Integer codProfessor;
     public String identificador;
 
-    public String getCodEvento() {
+    public Integer getCodEvento() {
         return codEvento;
     }
 
-    public void setCodEvento(String codEvento) {
+    public void setCodEvento(Integer codEvento) {
         this.codEvento = codEvento;
     }
 

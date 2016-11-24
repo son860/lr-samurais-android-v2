@@ -3,6 +3,7 @@ package com.example.emersongarcia86.lr_samurais_android_v2;
 import java.util.List;
 
 import br.com.pi.pi4.entity.ParticipanteGrupo;
+import models.Evento;
 import models.Participante;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,4 +19,6 @@ public interface PIService {
     @POST("learningrace1/rest/participante")
     Call<List<Participante>> getParticipante(@Body Participante participante);
 
+    @POST("learningrace1/rest/evento")
+    Call<List<Evento>> getEvento(@Body Evento evento);
 }
