@@ -16,6 +16,8 @@ import java.util.List;
 import br.com.pi.pi4.GroupSelectionActivity;
 import models.Evento;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class Layout_dgcodigo extends Activity {
@@ -40,28 +42,46 @@ public class Layout_dgcodigo extends Activity {
             @Override
             public void onClick(View v) {
 
-                Retrofit retrofit = Rest.getInstance().get();
-                PIService service = retrofit.create(PIService.class);
-                Evento e = new Evento();
-
-                Call<List<Evento>> call;
-                call = service.getEvento(e);
-
-                String identificador = edtext_codigo.getText().toString();
-                e.setIdentificador(identificador);
                 /* Validador do campo de código */
                 if(edtext_codigo.length() == 8){
 
-                    Intent i = new Intent(Layout_dgcodigo.this, GroupSelectionActivity.class);
-                    Bundle b = new Bundle();
-                    b.putString("evento", e.getCodEvento().toString()); //Your id
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Layout_dgcodigo.this);
-                    Integer userId = preferences.getInt("userid",0);
-                    Log.d("testeHendy",userId.toString());
-                    b.putString("participanteId", userId.toString()); //Your id
-                    b.putString ("proximaTela", Layout_game_rules.class.getName());
-                    i.putExtras(b); //Put your id to your next Intent
-                    startActivity(i);
+                    Retrofit retrofit = Rest.getInstance().get();
+                    PIService service = retrofit.create(PIService.class);
+                    Evento e = new Evento();
+
+                    String identificador = edtext_codigo.getText().toString();
+                    e.setIdentificador(identificador);
+
+                    Call<List<Evento>> call;
+                    call = service.selectEvento("38934888");
+
+                    call.enqueue(new Callback<List<Evento>>() {
+                        @Override
+                        public void onResponse(Call<List<Evento>> call, Response<List<Evento>> response) {
+                            Log.d("RESPONSE", "success");
+
+                            Intent i = new Intent(Layout_dgcodigo.this, GroupSelectionActivity.class);
+                            Bundle b = new Bundle();
+
+                            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Layout_dgcodigo.this);
+                            Integer userId = preferences.getInt("userid",0);
+                            Log.d("testeHendy",userId.toString());
+
+                            //b.putString("evento", response.body().getCodEvento().toString()); //Your id
+                            b.putString("participanteId", userId.toString()); //Your id
+                            b.putString ("proximaTela", Layout_game_rules.class.getName());
+
+                            i.putExtras(b); //Put your id to your next Intent
+                            startActivity(i);
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Evento>> call, Throwable t) {
+                            Log.e("RESPONSE", "error");
+                        }
+                    });
+
+                    Log.d("LIMIT", "Call passed");
 
                 }
 

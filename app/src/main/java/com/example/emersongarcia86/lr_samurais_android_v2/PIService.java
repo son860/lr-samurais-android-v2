@@ -20,5 +20,5 @@ public interface PIService {
     Call<List<Participante>> getParticipante(@Body Participante participante);
 
     @POST("learningrace1/rest/evento")
-    Call<List<Evento>> getEvento(@Body Evento evento);
+    Call<List<Evento>> selectEvento(@Body String identificador);
 }
