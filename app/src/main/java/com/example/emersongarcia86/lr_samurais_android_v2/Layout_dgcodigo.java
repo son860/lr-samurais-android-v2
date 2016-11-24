@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import br.com.pi.pi4.GroupSelectionActivity;
@@ -43,7 +45,7 @@ public class Layout_dgcodigo extends Activity {
             public void onClick(View v) {
 
                 /* Validador do campo de código */
-                if(edtext_codigo.length() == 8){
+                if(edtext_codigo.length() == 6 || true){
 
                     Retrofit retrofit = Rest.getInstance().get();
                     PIService service = retrofit.create(PIService.class);
@@ -53,21 +55,20 @@ public class Layout_dgcodigo extends Activity {
                     e.setIdentificador(identificador);
 
                     Call<List<Evento>> call;
-                    call = service.selectEvento(identificador);
+                    call = service.getEvento(identificador);
 
                     call.enqueue(new Callback<List<Evento>>() {
                         @Override
                         public void onResponse(Call<List<Evento>> call, Response<List<Evento>> response) {
                             Log.d("RESPONSE", "success");
+                            List<Evento> r = response.body();
 
                             Intent i = new Intent(Layout_dgcodigo.this, GroupSelectionActivity.class);
                             Bundle b = new Bundle();
 
                             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Layout_dgcodigo.this);
                             Integer userId = preferences.getInt("userid",0);
-                            Log.d("testeHendy",userId.toString());
-
-                            //b.putString("evento", response.body().getCodEvento().toString()); //Your id
+                            b.putString("evento", r.get(0).getCodEvento().toString()); //Your id
                             b.putString("participanteId", userId.toString()); //Your id
                             b.putString ("proximaTela", Layout_game_rules.class.getName());
 

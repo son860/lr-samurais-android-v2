@@ -21,6 +21,6 @@ public interface PIService {
     Call<List<Participante>> getParticipante(@Body Participante participante);
 
     @GET("learningrace1/rest/evento/{identificador}")
-    Call<List<Evento>> selectEvento(@Path("identificador") String identificador);
+    Call<List<Evento>> getEvento(@Path("identificador") String identificador);
 
 }

@@ -25,10 +25,8 @@
         <activity android:name=".Layout_events" />
         <activity android:name=".Layout_qrcode" />
         <activity android:name=".Layout_dgcodigo" />
-        <activity android:name=".Layout_choose_groups" />
         <activity android:name=".layout_placar" />
         <activity android:name=".Layout_game_rules" />
-        <activity android:name=".Layout_create_group" />
         <activity android:name=".Layout_while_result" />
         <activity android:name=".Layout_questions"></activity>
     </application>

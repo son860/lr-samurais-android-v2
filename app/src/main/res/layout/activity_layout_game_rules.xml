@@ -16,24 +16,9 @@
         android:id="@+id/text_rules_01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        android:text="@string/game_rules"
         android:textAlignment="viewStart" />
 
-    <TextView
-        android:layout_marginTop="30dp"
-        android:id="@+id/text_rules_02"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-        android:textAlignment="viewStart" />
-
-    <TextView
-        android:layout_marginTop="30dp"
-        android:id="@+id/text_rules_03"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-        android:textAlignment="viewStart" />
 
 
 
