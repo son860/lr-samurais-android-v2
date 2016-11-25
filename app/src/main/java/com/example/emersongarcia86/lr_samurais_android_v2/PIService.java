@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.pi.pi4.entity.ParticipanteGrupo;
 import models.Evento;
 import models.Participante;
+import models.QuestaoEvento;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
@@ -22,5 +23,8 @@ public interface PIService {
 
     @GET("learningrace1/rest/evento/{identificador}")
     Call<List<Evento>> getEvento(@Path("identificador") String identificador);
+
+    @GET("learningrace1/rest/questaoevento/{identificador}")
+    Call<List<QuestaoEvento>> getQuestaoEvento(@Path("identificador") String identificador);
 
 }
