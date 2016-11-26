@@ -16,6 +16,7 @@ import models.Participante;
 public class Application {
 
     private static SharedPreferences preferences;
+    private static String identificadorEvento;
 
     public static boolean isLogged(Activity activity) {
         preferences = PreferenceManager.getDefaultSharedPreferences(activity);
@@ -28,5 +29,15 @@ public class Application {
         editor.putBoolean("LOGIN", true);
         editor.putInt("userid", lpg.get(0).getCodParticipante());
         editor.apply();
+    }
+
+    public static void dadosEvento(String identificador){
+        identificadorEvento = preferences.getString("identificador", identificador);
+    }
+    public static String getEvento(){
+        if(identificadorEvento != null){
+            return identificadorEvento;
+        }
+        return "";
     }
 }

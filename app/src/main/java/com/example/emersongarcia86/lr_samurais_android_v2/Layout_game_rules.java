@@ -40,7 +40,8 @@ public class Layout_game_rules extends AppCompatActivity {
         PIService service = retrofit.create(PIService.class);
         QuestaoEvento eq = new QuestaoEvento();
 
-        String identificador = "ZZZZZZ";
+
+         String identificador = Application.getEvento();
 
         Call<List<QuestaoEvento>> call;
         call = service.getQuestaoEvento(identificador);
