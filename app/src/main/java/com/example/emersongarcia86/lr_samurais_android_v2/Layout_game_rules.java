@@ -9,9 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
+import java.util.Map;
 
 import br.com.pi.pi4.MainActivity;
+import models.Alternativa;
 import models.QuestaoEvento;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,28 +56,25 @@ public class Layout_game_rules extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<QuestaoEvento>> call, Response<List<QuestaoEvento>> response) {
                 List<QuestaoEvento> r = response.body();
-                Integer codQuestao = r.get(0).getCodQuestao();
 
-                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                editor.putString("name", "Elena");
-                editor.putInt("codQuestao", codQuestao);
+                SharedPreferences.Editor    editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putString("textoQuestao", r.get(0).getTextoQuestao());
+                editor.putInt("codQuestao", r.get(0).getCodQuestao());
+
+                StringBuilder textoAlternativas = new StringBuilder();
+                for (int i = 0; i < r.get(0).getAlternativas().size(); i++) {
+                    if (r.get(0).getAlternativas().size() == i + 1) {
+                        textoAlternativas.append(r.get(0).getAlternativas().get(i).getTextoAlternativa());
+                    } else {
+                        textoAlternativas.append(r.get(0).getAlternativas().get(i).getTextoAlternativa() + ",");
+                    }
+                }
+
+                editor.putString("alternativas", textoAlternativas.toString());
                 editor.apply();
 
                 startActivity(new Intent(Layout_game_rules.this, Layout_questions.class));
                 finish();
-
-//                Intent i = new Intent(Layout_dgcodigo.this, GroupSelectionActivity.class);
-//                Bundle b = new Bundle();
-
-//                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Layout_dgcodigo.this);
-
-//                Integer userId = preferences.getInt("userid",0);
-//                b.putString("evento", r.get(0).getCodEvento().toString()); //Your id
-//                b.putString("participanteId", userId.toString()); //Your id
-//                b.putString ("proximaTela", Layout_game_rules.class.getName());
-
-//                i.putExtras(b); //Put your id to your next Intent
-//                startActivity(i);
             }
 
             @Override

@@ -25,25 +25,10 @@
         android:layout_height="wrap_content"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
 
-    <RadioButton
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    <ListView
+        android:id="@+id/alternativas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/alternativ_01"
-        android:layout_marginBottom="30dp"/>
-
-    <RadioButton
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/alternativ_02"
-        android:layout_marginBottom="30dp"/>
-
-    <RadioButton
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/alternativ_03" />
+        android:layout_height="match_parent" />
 
     <Button
         android:layout_marginTop="50dp"

@@ -4,7 +4,9 @@ package models;
  * Created by hendy on 22/11/2016.
  */
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class QuestaoEvento {
@@ -14,7 +16,16 @@ public class QuestaoEvento {
     private String textoAlternativa;
     private String codStatus;
     private Integer codEvento;
-    private Set<Alternativa> alternativas = new HashSet<Alternativa>();
+    private List<Alternativa> alternativas = new ArrayList<Alternativa>();
+
+
+    public List<Alternativa> getAlternativas() {
+        return alternativas;
+    }
+
+    public void setAlternativas(List<Alternativa> alternativas) {
+        this.alternativas = alternativas;
+    }
 
     public Integer getCodEvento() {
         return codEvento;
