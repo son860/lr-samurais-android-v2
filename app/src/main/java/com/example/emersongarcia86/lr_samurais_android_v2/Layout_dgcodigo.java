@@ -51,7 +51,7 @@ public class Layout_dgcodigo extends Activity {
                     PIService service = retrofit.create(PIService.class);
                     Evento e = new Evento();
 
-                    String identificador = edtext_codigo.getText().toString();
+                    final String identificador = edtext_codigo.getText().toString();
                     e.setIdentificador(identificador);
 
                     Call<List<Evento>> call;
@@ -66,12 +66,14 @@ public class Layout_dgcodigo extends Activity {
                             Intent i = new Intent(Layout_dgcodigo.this, GroupSelectionActivity.class);
                             Bundle b = new Bundle();
 
+
                             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Layout_dgcodigo.this);
                             Integer userId = preferences.getInt("userid",0);
                             b.putString("evento", r.get(0).getCodEvento().toString()); //Your id
                             b.putString("participanteId", userId.toString()); //Your id
                             b.putString ("proximaTela", Layout_game_rules.class.getName());
 
+                            Application.dadosEvento(r.get(0).getIdentificador());
                             i.putExtras(b); //Put your id to your next Intent
                             startActivity(i);
                         }
