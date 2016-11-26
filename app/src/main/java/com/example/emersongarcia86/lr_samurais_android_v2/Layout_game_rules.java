@@ -47,7 +47,7 @@ public class Layout_game_rules extends AppCompatActivity {
         QuestaoEvento eq = new QuestaoEvento();
 
 
-         String identificador = Application.getEvento();
+        String identificador = Application.getEvento();
 
         Call<List<QuestaoEvento>> call;
         call = service.getQuestaoEvento(identificador);
@@ -58,20 +58,26 @@ public class Layout_game_rules extends AppCompatActivity {
             public void onResponse(Call<List<QuestaoEvento>> call, Response<List<QuestaoEvento>> response) {
                 List<QuestaoEvento> r = response.body();
 
-                SharedPreferences.Editor    editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                 editor.putString("textoQuestao", r.get(0).getTextoQuestao());
                 editor.putInt("codQuestao", r.get(0).getCodQuestao());
 
                 StringBuilder textoAlternativas = new StringBuilder();
+                StringBuilder idsAlternativas = new StringBuilder();
+
                 for (int i = 0; i < r.get(0).getAlternativas().size(); i++) {
                     if (r.get(0).getAlternativas().size() == i + 1) {
+                        idsAlternativas.append(r.get(0).getAlternativas().get(i).getCodAlternativa());
                         textoAlternativas.append(r.get(0).getAlternativas().get(i).getTextoAlternativa());
                     } else {
+                        idsAlternativas.append(r.get(0).getAlternativas().get(i).getCodAlternativa() + ",");
                         textoAlternativas.append(r.get(0).getAlternativas().get(i).getTextoAlternativa() + ",");
                     }
                 }
 
                 editor.putString("alternativas", textoAlternativas.toString());
+                editor.putString("ids_alternativas", idsAlternativas.toString());
+
                 editor.apply();
 
                 startActivity(new Intent(Layout_game_rules.this, Layout_questions.class));
