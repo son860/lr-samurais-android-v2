@@ -31,4 +31,7 @@ public interface PIService {
     @POST("learningrace1/rest/questaoevento")
     Call<QuestaoGrupo> getQuestaoGrupo(@Body QuestaoGrupo questaoGrupo);
 
+    @GET("learningrace1/rest/grupo/{codEvento}")
+    Call<List<models.ParticipanteGrupo>> getParticipanteGrupo(@Path("codEvento") Integer codEvento);
+
 }
