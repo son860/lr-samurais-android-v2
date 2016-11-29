@@ -1,16 +1,12 @@
-package com.example.emersongarcia86.lr_samurais_android_v2;
-import android.app.Activity;
-import android.content.Intent;
+package com.pi.emersongarcia86.lr_samurais_android_v2;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.List;
 import models.Placar;
-import models.QuestaoEvento;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

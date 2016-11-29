@@ -1,4 +1,4 @@
-package com.example.emersongarcia86.lr_samurais_android_v2;
+package com.pi.emersongarcia86.lr_samurais_android_v2;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -40,7 +40,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import com.example.emersongarcia86.lr_samurais_android_v2.Rest;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "foo@pi.com:hello", "bar@pi.com:world"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.

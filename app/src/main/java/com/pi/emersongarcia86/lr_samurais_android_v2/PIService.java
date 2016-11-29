@@ -1,8 +1,7 @@
-package com.example.emersongarcia86.lr_samurais_android_v2;
+package com.pi.emersongarcia86.lr_samurais_android_v2;
 
 import java.util.List;
 
-import br.com.pi.pi4.entity.ParticipanteGrupo;
 import models.Evento;
 import models.Participante;
 import models.Placar;
@@ -10,7 +9,6 @@ import models.QuestaoEvento;
 import models.QuestaoGrupo;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;

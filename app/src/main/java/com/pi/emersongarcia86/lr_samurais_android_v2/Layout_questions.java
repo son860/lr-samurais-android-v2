@@ -1,4 +1,4 @@
-package com.example.emersongarcia86.lr_samurais_android_v2;
+package com.pi.emersongarcia86.lr_samurais_android_v2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-import static com.example.emersongarcia86.lr_samurais_android_v2.Layout_game_rules.MY_PREFS_NAME;
+import static com.pi.emersongarcia86.lr_samurais_android_v2.Layout_game_rules.MY_PREFS_NAME;
 
 public class Layout_questions extends AppCompatActivity {
     TextView textElement;

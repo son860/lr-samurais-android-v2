@@ -1,35 +1,21 @@
-package com.example.emersongarcia86.lr_samurais_android_v2;
+package com.pi.emersongarcia86.lr_samurais_android_v2;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.CountDownTimer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.logging.Handler;
 
-import br.com.pi.pi4.MainActivity;
-import models.Alternativa;
 import models.QuestaoEvento;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
-import static com.example.emersongarcia86.lr_samurais_android_v2.R.id.edtext_codigo;
 
 public class Layout_game_rules extends AppCompatActivity {
 

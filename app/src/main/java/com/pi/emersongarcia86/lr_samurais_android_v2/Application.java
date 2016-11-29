@@ -1,7 +1,6 @@
-package com.example.emersongarcia86.lr_samurais_android_v2;
+package com.pi.emersongarcia86.lr_samurais_android_v2;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 

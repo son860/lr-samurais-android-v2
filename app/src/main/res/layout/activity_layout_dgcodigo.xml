@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="150dp"
     android:orientation="vertical"
-    tools:context="com.example.emersongarcia86.lr_samurais_android_v2.Layout_dgcodigo">
+    tools:context="com.pi.emersongarcia86.lr_samurais_android_v2.Layout_dgcodigo">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

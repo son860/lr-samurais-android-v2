@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.emersongarcia86.lr_samurais_android_v2.Layout_choose_groups">
+    tools:context="com.pi.emersongarcia86.lr_samurais_android_v2.Layout_choose_groups">
 
     <ListView
         android:id="@+id/list_groups"

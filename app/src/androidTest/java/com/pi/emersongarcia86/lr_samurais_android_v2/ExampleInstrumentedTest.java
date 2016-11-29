@@ -1,4 +1,4 @@
-package com.example.emersongarcia86.lr_samurais_android_v2;
+package com.pi.emersongarcia86.lr_samurais_android_v2;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.emersongarcia86.lr_samurais_android_v2", appContext.getPackageName());
+        assertEquals("com.pi.emersongarcia86.lr_samurais_android_v2", appContext.getPackageName());
     }
 }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="15dp"
     android:orientation="vertical"
-    tools:context="com.example.emersongarcia86.lr_samurais_android_v2.layout_placar"
+    tools:context="com.pi.emersongarcia86.lr_samurais_android_v2.layout_placar"
     android:weightSum="1">
     <TextView
         android:layout_width="match_parent"

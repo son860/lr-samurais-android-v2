@@ -4,7 +4,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
     defaultConfig {
-        applicationId "com.example.emersongarcia86.lr_samurais_android_v2"
+        applicationId "com.pi.emersongarcia86.lr_samurais_android_v2"
         minSdkVersion 17
         targetSdkVersion 24
         versionCode 1
