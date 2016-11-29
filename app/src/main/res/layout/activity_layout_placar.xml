@@ -9,50 +9,60 @@
     android:orientation="vertical"
     tools:context="com.example.emersongarcia86.lr_samurais_android_v2.layout_placar"
     android:weightSum="1">
-
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NOME DO TIME  - 20 PONTOS"
+        android:text=""
         android:layout_weight="0.04"
         android:textSize="20dp"
-        android:textAlignment="textEnd"
-        android:id="@+id/textView" />
-
+        android:textAlignment="center"
+        android:id="@+id/vencedor1"/>
     <ImageView
-        android:layout_width="118dp"
+        android:layout_width="match_parent"
         android:layout_height="128dp"
         app:srcCompat="@drawable/trofeu"
-        android:id="@+id/imageView2" />
-
-    <RadioButton
-        android:text="RadioButton"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/imageView2"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rd_result1"
-        android:layout_weight="0.04" />
-
-    <RadioButton
-        android:text="RadioButton"
+        android:text=""
+        android:layout_weight="0.04"
+        android:textSize="16dp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:id="@+id/vencedor2" />
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rd_result2"
-        android:layout_weight="0.04" />
-
-    <RadioButton
-        android:text="RadioButton"
+        android:text=""
+        android:layout_weight="0.04"
+        android:textSize="16dp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:id="@+id/vencedor3" />
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rd_result3"
-        android:layout_weight="0.04" />
-
+        android:text=""
+        android:layout_weight="0.04"
+        android:textSize="16dp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:id="@+id/vencedor4" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_weight="0.04"
+        android:textSize="16dp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:id="@+id/vencedor5" />
     <Button
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="voltar"
         android:background="@color/colorPrimary"/>
-
-
 </LinearLayout>

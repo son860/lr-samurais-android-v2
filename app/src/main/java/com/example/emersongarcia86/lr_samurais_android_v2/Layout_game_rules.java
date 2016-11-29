@@ -70,39 +70,45 @@ public class Layout_game_rules extends AppCompatActivity {
                     }
                 }
 
-                final SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                editor.putString("textoQuestao", r.get(numQ).getTextoQuestao());
-                editor.putInt("codQuestao", r.get(numQ).getCodQuestao());
-                editor.putInt("codEvento", r.get(numQ).getCodEvento());
+                if (numQ == r.size()) {
+                    Intent intent = new Intent(Layout_game_rules.this, layout_placar.class);
+                    startActivity(intent);
 
-//                int numQ = (prefs.getInt("numQ", 0) == 0) ? prefs.getInt("numQ", 0) + 1 : 0;
-//                editor.putInt("numQ", numQ + 1);
+                } else {
+                    final SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putString("textoQuestao", r.get(numQ).getTextoQuestao());
+                    editor.putInt("codQuestao", r.get(numQ).getCodQuestao());
+                    editor.putInt("codEvento", r.get(numQ).getCodEvento());
 
-                StringBuilder textoAlternativas = new StringBuilder();
-                StringBuilder idsAlternativas = new StringBuilder();
+                    //                int numQ = (prefs.getInt("numQ", 0) == 0) ? prefs.getInt("numQ", 0) + 1 : 0;
+                    //                editor.putInt("numQ", numQ + 1);
 
-                for (int i = 0; i < r.get(numQ).getAlternativas().size(); i++) {
-                    if (r.get(numQ).getAlternativas().size() == i + 1) {
-                        idsAlternativas.append(r.get(numQ).getAlternativas().get(i).getCodAlternativa());
-                        textoAlternativas.append(r.get(numQ).getAlternativas().get(i).getTextoAlternativa());
-                    } else {
-                        idsAlternativas.append(r.get(numQ).getAlternativas().get(i).getCodAlternativa() + ",");
-                        textoAlternativas.append(r.get(numQ).getAlternativas().get(i).getTextoAlternativa() + ",");
+                    StringBuilder textoAlternativas = new StringBuilder();
+                    StringBuilder idsAlternativas = new StringBuilder();
+
+                    for (int i = 0; i < r.get(numQ).getAlternativas().size(); i++) {
+                        if (r.get(numQ).getAlternativas().size() == i + 1) {
+                            idsAlternativas.append(r.get(numQ).getAlternativas().get(i).getCodAlternativa());
+                            textoAlternativas.append(r.get(numQ).getAlternativas().get(i).getTextoAlternativa());
+                        } else {
+                            idsAlternativas.append(r.get(numQ).getAlternativas().get(i).getCodAlternativa() + ",");
+                            textoAlternativas.append(r.get(numQ).getAlternativas().get(i).getTextoAlternativa() + ",");
+                        }
                     }
+
+                    editor.putString("alternativas", textoAlternativas.toString());
+                    editor.putString("ids_alternativas", idsAlternativas.toString());
+
+                    editor.apply();
+
+                    //                startActivity(new Intent(Layout_game_rules.this, Layout_questions.class));
+                    //                finish();
+
+                    Intent intent = new Intent(Layout_game_rules.this, Layout_questions.class);
+                    intent.putExtra("numQ", numQ);
+                    startActivity(intent);
                 }
-
-                editor.putString("alternativas", textoAlternativas.toString());
-                editor.putString("ids_alternativas", idsAlternativas.toString());
-
-                editor.apply();
-
-//                startActivity(new Intent(Layout_game_rules.this, Layout_questions.class));
-//                finish();
-
-                Intent intent = new Intent(Layout_game_rules.this, Layout_questions.class);
-                intent.putExtra("numQ", numQ);
-                startActivity(intent);
             }
 
             @Override

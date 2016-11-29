@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.pi.pi4.entity.ParticipanteGrupo;
 import models.Evento;
 import models.Participante;
+import models.Placar;
 import models.QuestaoEvento;
 import models.QuestaoGrupo;
 import retrofit2.Call;
@@ -33,5 +34,8 @@ public interface PIService {
 
     @GET("learningrace1/rest/grupo/{codEvento}")
     Call<List<models.ParticipanteGrupo>> getParticipanteGrupo(@Path("codEvento") Integer codEvento);
+
+    @GET("learningrace1/rest/placar/{identificador}")
+    Call<List<Placar>> getPlacar(@Path("identificador") String identificador);
 
 }
