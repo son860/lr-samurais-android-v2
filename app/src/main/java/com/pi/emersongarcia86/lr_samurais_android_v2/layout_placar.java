@@ -1,8 +1,10 @@
 package com.pi.emersongarcia86.lr_samurais_android_v2;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.List;
@@ -12,7 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 public class layout_placar extends AppCompatActivity {
-    private Button btnVoltar;
+
     private TextView vencedor;
     private TextView vencedor2;
     private TextView vencedor3;
@@ -30,27 +32,15 @@ public class layout_placar extends AppCompatActivity {
         vencedor4 = (TextView) findViewById(R.id.vencedor4);
         vencedor5 = (TextView) findViewById(R.id.vencedor5);
 
-//        Retrofit retrofit = Rest.getInstance().get();
-//        PIService service = retrofit.create(PIService.class);
-//        String identificador = Application.getEvento();
-//
-//        Placar p = new Placar();
-//        Call<List<Placar>> call;
-//        call = service.getPlacar(identificador);
-//
-//        call.enqueue(new Callback<List<Placar>>() {
-//            @Override
-//            public void onResponse(Call<List<Placar>> call, Response<List<Placar>> response) {
-//                List<Placar> r = response.body();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Placar>> call, Throwable t) {
-//                Log.e("RESPONSE", "error");
-//            }
-//        });
+        Button voltar = (Button) findViewById(R.id.btn_voltar);
 
-
+        voltar.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent codigo_intent = new Intent(layout_placar.this,Layout_events.class);
+                startActivity(codigo_intent);
+                finish();
+            }
+        });
 
         Retrofit retrofit = Rest.getInstance().get();
         PIService service = retrofit.create(PIService.class);
@@ -85,8 +75,6 @@ public class layout_placar extends AppCompatActivity {
                 if (r.size() >= 5) {
                     vencedor5.setText(r.get(4).getNmgrupo()+" - "+r.get(4).getCorreta()+" Acertos");
                 }
-
-
             }
 
             @Override
@@ -94,7 +82,6 @@ public class layout_placar extends AppCompatActivity {
                 Log.e("RESPONSE", "error");
             }
         });
-
 
     }
 }

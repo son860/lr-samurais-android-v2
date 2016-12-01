@@ -28,7 +28,11 @@
         <activity android:name="com.pi.emersongarcia86.lr_samurais_android_v2.layout_placar" />
         <activity android:name="com.pi.emersongarcia86.lr_samurais_android_v2.Layout_game_rules" />
         <activity android:name="com.pi.emersongarcia86.lr_samurais_android_v2.Layout_while_result" />
-        <activity android:name="com.pi.emersongarcia86.lr_samurais_android_v2.Layout_questions"></activity>
+        <activity android:name="com.pi.emersongarcia86.lr_samurais_android_v2.Layout_questions"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

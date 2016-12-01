@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import models.ParticipanteGrupo;
@@ -27,6 +29,7 @@ public class Layout_questions extends AppCompatActivity {
     TextView textElement;
     private ListView alternativas;
     private String[] ids_alternativas;
+    List<Integer> respondidas = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +103,8 @@ public class Layout_questions extends AppCompatActivity {
                 qe.setCodGrupo(idParticipanteGrupo[0]);
 //                qe.setCorreta(true);
 
+                respondidas.add(prefs.getInt("codQuestao", 0));
+
                 Call<QuestaoGrupo> call;
                 call = service.getQuestaoGrupo(qe);
 
@@ -121,7 +126,9 @@ public class Layout_questions extends AppCompatActivity {
                             }
                         }
 
+                        intent.putExtra("respondidas", (Serializable) respondidas);
                         intent.putExtra("numQ", numQ + 1);
+
                         startActivity(intent);
 
                     }
